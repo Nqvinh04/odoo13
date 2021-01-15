@@ -44,7 +44,7 @@
     <record id="session_list_action" model="ir.actions.act_window">
         <field name="name">Session</field>
         <field name="res_model">academy.session</field>
-        <field name="view_mode">tree, form, calendar, gantt, graph, pivot, kanban</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="session_menu" name="Session" parent="academy_menu" action="session_list_action"/>

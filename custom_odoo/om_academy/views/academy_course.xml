@@ -22,14 +22,27 @@
         </field>
     </record>
 
+    <!-- override the automatically generated list view for courses -->
+        <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">course.tree</field>
+            <field name="model">academy.course</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                    <field name="description"/>
+<!--                    <field name="responsible_id"/>-->
+                </tree>
+            </field>
+        </record>
+
     <!--Windows actions-->
     <record id="course_list_action" model="ir.actions.act_window">
         <field name="name">Course</field>
         <field name="res_model">academy.course</field>
-        <field name="view_mode">tree, form</field>
+        <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="0_view_nocontent_smiling_face">
-                Create the first course
+                Create the first <course></course>
             </p>
         </field>
     </record>

@@ -47,6 +47,10 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="session_menu" name="Session" parent="academy_menu" action="session_list_action"/>
+    <menuitem id="session_menu"
+              name="Session"
+              parent="academy_menu"
+              action="session_list_action"
+              groups="group_academy_manager"/>
 </odoo>
 

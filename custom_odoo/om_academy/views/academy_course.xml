@@ -48,12 +48,12 @@
     </record>
 
     <menuitem id="main_academy_menu"
-              name="Open Academy"/>
+              name="Open Academy" groups="group_academy_manager"/>
     <menuitem id="academy_menu"
               name="Open Academy"
-              parent="main_academy_menu"/>
+              parent="main_academy_menu" groups="group_academy_manager"/>
     <menuitem id="course_menu"
               name="Course"
               parent="academy_menu"
-              action="course_list_action"/>
+              action="course_list_action" groups="group_academy_manager"/>
 </odoo>

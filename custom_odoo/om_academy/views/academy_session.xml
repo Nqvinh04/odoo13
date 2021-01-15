@@ -49,3 +49,4 @@
 
     <menuitem id="session_menu" name="Session" parent="academy_menu" action="session_list_action"/>
 </odoo>
+

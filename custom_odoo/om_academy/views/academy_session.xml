@@ -33,20 +33,37 @@
         <field name="name">session.tree</field>
         <field name="model">academy.session</field>
         <field name="arch" type="xml">
-            <tree string="Session Tree" decoration-bf="duration&lt;5" decoration-it="duration&gt;15">
+            <tree string="Session Tree" decoration-info="duration&lt;5" decoration-danger="duration&gt;15">
+<!--            <tree string="Session Tree" decoration-info="duration&lt;5" decoration-it="duration==10" decoration-bf="duration==15"-->
+<!--                  decoration-danger="duration==20" decoration-warning="duration==25">-->
                 <field name="name"/>
-<!--                <field name="name"/>-->
+                <field name="course_id"/>
                 <field name="taken_seats" widget="progressbar"/>
                 <field name="duration" invisible="1"/>
             </tree>
         </field>
     </record>
 
+<!--    calendar view-->
+    <record id="session_calendar_view" model="ir.ui.view">
+        <field name="name">session.calendar</field>
+        <field name="model">academy.session</field>
+        <field name="arch" type="xml">
+            <calendar string="Session Calendar" date_start="start_date"
+                      date_stop="end_date" color="instructor_id">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+
+
+
 <!--    windows actions-->
     <record id="session_list_action" model="ir.actions.act_window">
         <field name="name">Session</field>
         <field name="res_model">academy.session</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar</field>
     </record>
 
     <menuitem id="session_menu"

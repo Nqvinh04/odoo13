@@ -8,10 +8,19 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="responsible_id"/>
                     </group>
                     <notebook>
                         <page string="Description">
                             <field name="description"/>
+                        </page>
+                        <page string="Sessions">
+                            <field name="session_ids">
+                                <tree string="Registered section">
+                                    <field name="name"/>
+                                    <field name="instructor_id"/>
+                                </tree>
+                            </field>
                         </page>
                         <page string="About">
                             This is an example of notebooks
@@ -30,7 +39,7 @@
                 <tree string="Course Tree">
                     <field name="name"/>
                     <field name="description"/>
-<!--                    <field name="responsible_id"/>-->
+                    <field name="responsible_id"/>
                 </tree>
             </field>
         </record>
@@ -42,18 +51,19 @@
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="0_view_nocontent_smiling_face">
-                Create the first <course></course>
+                Create the first
             </p>
         </field>
     </record>
 
     <menuitem id="main_academy_menu"
-              name="Open Academy" groups="group_academy_manager"/>
+              name="Open Academy"/>
     <menuitem id="academy_menu"
               name="Open Academy"
-              parent="main_academy_menu" groups="group_academy_manager"/>
+              parent="main_academy_menu"
+              />
     <menuitem id="course_menu"
               name="Course"
               parent="academy_menu"
-              action="course_list_action" groups="group_academy_manager"/>
+              action="course_list_action"/>
 </odoo>

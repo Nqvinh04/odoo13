@@ -16,10 +16,11 @@
     'version': '0.1',
     'depends': ['base'],
     'data': [
-        'security/security.xml',
+        # 'security/security.xml',
         'security/ir.model.access.csv',
         'views/academy_course.xml',
         'views/academy_session.xml',
+        'views/partner.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -21,6 +21,7 @@
         'views/academy_course.xml',
         'views/academy_session.xml',
         'views/partner.xml',
+        'wizards/wizard_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
@@ -28,6 +29,5 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-
 }
 

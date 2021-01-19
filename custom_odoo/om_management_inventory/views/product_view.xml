@@ -10,8 +10,12 @@
                         <field name="name"/>
                     </h1>
                     <group>
-                        <field name="amount"/>
-                        <field name="price"/>
+                        <group>
+                            <field name="amount"/>
+                            <field name="dvt"/>
+                            <field name="price" class="oe_inline" widget="monetary"
+                            options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                        </group>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -30,8 +34,11 @@
             <tree string="Products" sample="1">
                 <field name="name"/>
                 <field name="amount"/>
-                <field name="price"/>
-                <field name="list_price"/>
+                <field name="dvt"/>
+                <field name="price" widget='monetary'
+                       options="{'currency_field': 'currency_id'}"
+                       optional="show"/>
+                <field name="list_price" />
             </tree>
         </field>
     </record>

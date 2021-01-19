@@ -16,11 +16,11 @@
     'version': '0.1',
     'depends': ['base', 'mail'],
     'data': [
+        'security/ir.model.access.csv',
+        'views/product_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'security/ir.model.access.csv',
-        'views/product_view.xml',
     ],
     'installable': True,
     'application': True,

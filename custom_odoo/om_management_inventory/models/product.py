@@ -10,3 +10,4 @@ class Product(models.Model):
     amount = fields.Integer(string='Số Lượng ', required=True)
     price = fields.Float(string='Giá/Gói')
     dvt = fields.Char(default='Gói', string="Quy Cách")
+    inventory_id = fields.One2many('product.inventory', 'product_id')

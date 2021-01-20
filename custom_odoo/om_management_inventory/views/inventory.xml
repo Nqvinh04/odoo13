@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="inventory_view_from" model="ir.model.view">
+    <record id="inventory_view_from" model="ir.ui.view">
         <field name="name">inventory.view.from</field>
         <field name="model">product.inventory</field>
         <field name="arch" type="xml">
-            <from string="Inventory Form">
+            <form string="Inventory Form">
                 <sheet>
-                    <field name="product_id"/>
-                    <field name="amount"/>
-                    <field name="date"/>
+                    <group>
+                        <field name="product_id"/>
+                        <field name="amount"/>
+                        <field name="date"/>
+                    </group>
                 </sheet>
-            </from>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
         </field>
     </record>
 
-    <record id="inventory_view_tree" model="ir.model.view">
+    <record id="inventory_view_tree" model="ir.ui.view">
         <field name="name">inventory.view.tree</field>
         <field name="model">product.inventory</field>
         <field name="arch" type="xml">
             <tree string="Inventory Tree">
                 <field name="product_id"/>
                 <field name="amount"/>
+                <field name="dvt"/>
                 <field name="date"/>
             </tree>
         </field>

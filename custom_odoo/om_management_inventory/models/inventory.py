@@ -9,6 +9,6 @@ class Inventory(models.Model):
     product_id = fields.Many2one('product.manager', string='Product')
     date = fields.Date(string='EXP', default=fields.Date.context_today, track_visibility='always')
     dvt = fields.Char(default='Thùng', string="Quy Cách")
-    amount = fields.Integer(string='Amount')
+    amount = fields.Integer(string='Amount', track_visibility='always')
 
 

@@ -6,10 +6,10 @@ class Product(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Product Manager'
 
-    name = fields.Char(string='Tên Sản Phẩm', index=True, required=True)
-    amount = fields.Integer(string='Số Lượng ', required=True)
-    price = fields.Float(string='Giá/Gói')
-    dvt = fields.Char(default='Gói', string="Quy Cách")
+    name = fields.Char(string='Tên Sản Phẩm', index=True, required=True, track_visibility='always')
+    amount = fields.Integer(string='Số Lượng ', required=True, track_visibility='onchange')
+    price = fields.Float(string='Giá/Gói', track_visibility='always')
+    dvt = fields.Char(default='Gói', string="Quy Cách", track_visibility='always')
     inventory_ids = fields.One2many('product.inventory', 'product_id')
     type = fields.Selection([
         ('product', 'Storable Product'),

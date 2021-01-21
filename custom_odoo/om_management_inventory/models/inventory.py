@@ -3,7 +3,7 @@ from odoo import fields, models, api, _
 
 class Inventory(models.Model):
     _name = 'product.inventory'
-    _inherit = ['mail.thread', 'mail.activity.mixin', ]
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Product Inventory'
     _order = "date desc, id desc"
 

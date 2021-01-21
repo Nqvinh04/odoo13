@@ -48,3 +48,4 @@
 
     <menuitem id="inventory_view_menu" name="Inventory" parent="product_menu" action="inventory_view_action"/>
 </odoo>
+

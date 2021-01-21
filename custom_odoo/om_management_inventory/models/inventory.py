@@ -3,8 +3,9 @@ from odoo import fields, models, api, _
 
 class Inventory(models.Model):
     _name = 'product.inventory'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin', ]
     _description = 'Product Inventory'
+    _order = "date desc, id desc"
 
     product_id = fields.Many2one('product.manager', string='Product')
     date = fields.Date(string='EXP', default=fields.Date.context_today, track_visibility='always')

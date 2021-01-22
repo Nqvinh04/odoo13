@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="product_quantity_view_form_editable">
+        <field name="name">product.quantity.view.form.editable</field>
+        <field name="model">product.quantity</field>
+        <field eval="11" name="priority"/>
+        <field name="arch" type="xml">
+            <from>
+
+            </from>
+        </field>
+
+    </record>
+</odoo>

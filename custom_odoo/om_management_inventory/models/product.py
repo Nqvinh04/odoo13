@@ -17,6 +17,10 @@ class Product(models.Model):
         ('service', 'Service')
     ], string='Product Type', default='consu')
     default_code = fields.Char('Internal Reference', index=True)
+    qty_available = fields.Integer(
+        'Quantity On Hand', compute='_compute_quantities',
+        digits='Product Unit of Measure', compute_sudo=False
+    )
     image_1920 = fields.Image("Image", compute='_compute_image_1920', inverse='_set_image_1920')
 
     image_variant_1920 = fields.Image("Variant Image", max_width=1920, max_height=1920)
@@ -60,6 +64,31 @@ class Product(models.Model):
                 record.product_tmpl_id.image_1920 = record.image_1920
             else:
                 record.image_variant_1920 = record.image_1920
+
+    def action_update_quantity_on_hand(self):
+        return self.product_tmpl_id.with_context(default_product_id=self.id, create=True).action_update_quantity_on_hand()
+
+    # def action_update_quantity_on_hand(self):
+    #     advanced_option_groups = [
+    #         'stock.group_stock_multi_locations',
+    #         'stock.group_production_lot',
+    #         'stock.group_tracking_owner',
+    #         'stock.group_stock_packaging',
+    #     ]
+    #     if (self.env.user.user_has_groups(','.join(advanced_option_groups))):
+    #         return self.action_open_quants()
+    #     else:
+    #         default_product_id = self.env.context.get('default_product_id', len(self.product_variant_ids) == 1
+    #                                                   and self.product_variant_id.id)
+    #         action = self.env["ir.actions.actions"]._for_xml_id("stock.action_change_product_quantity")
+    #         action['context'] = dict(
+    #             self.env.context,
+    #             default_product_id=default_product_id,
+    #             default_product_tmpl_id=self.id
+    #         )
+    #         return action
+
+
 
 
 

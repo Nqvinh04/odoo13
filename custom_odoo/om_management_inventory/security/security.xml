@@ -6,14 +6,32 @@
             <field name="category_id" ref="base.module_category_inventory_inventory"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
         </record>
+
         <record id="group_stock_manager" model="res.groups">
             <field name="name">Administrator</field>
             <field name="category_id" ref="base.module_category_inventory_inventory"/>
             <field name="implied_ids" eval="[(4, ref('base.group_stock_user'))]"/>
             <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin')]"/>
         </record>
-        <record>
 
+        <record id="group_management_inventory_multi_locations" model="res.groups">
+            <field name="name">Manage Multiple Management Inventory Locations</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+
+        <record id="group_production_lot" model="res.groups">
+            <field name="name">Manage Lots / Serial Numbers</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+
+        <record id="group_tracking_owner" model="res.group">
+            <field name="name">Manage Different Management Owners</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+
+        <record id="group_management_inventory_packaging" model="res.group">
+            <field name="name">Manage Product Packaging</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
         </record>
     </data>
 </odoo>

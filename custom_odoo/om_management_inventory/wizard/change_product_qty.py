@@ -21,3 +21,6 @@ class ProductChangeQuantity(models.TransientModel):
     def check_new_quantity(self):
         if any(wizard.new_quantity < 0 for wizard in self):
             raise UserError(_('Quantity cannot be negative.'))
+
+    def change_product_qty(self):
+        print("Thanh Cong")

@@ -38,7 +38,7 @@
         </field>
     </record>
 
-    <record id="action_product_replenish" model="ir.model.act_window">
+    <record id="action_product_replenish" model="ir.actions.act_window">
         <field name="name">Replenish</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">replenish.product</field>
@@ -47,4 +47,5 @@
         <field name="view_id" ref="view_product_replenish"/>
         <field name="target">new</field>
     </record>
+
 </odoo>

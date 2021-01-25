@@ -69,25 +69,25 @@ class Product(models.Model):
     def action_update_quantity_on_hand(self):
         return self.product_tmpl_id.with_context(default_product_id=self.id, create=True).action_update_quantity_on_hand()
 
-    # def action_update_quantity_on_hand(self):
-    #     advanced_option_groups = [
-    #         'stock.group_stock_multi_locations',
-    #         'stock.group_production_lot',
-    #         'stock.group_tracking_owner',
-    #         'stock.group_stock_packaging',
-    #     ]
-    #     if (self.env.user.user_has_groups(','.join(advanced_option_groups))):
-    #         return self.action_open_quants()
-    #     else:
-    #         default_product_id = self.env.context.get('default_product_id', len(self.product_variant_ids) == 1
-    #                                                   and self.product_variant_id.id)
-    #         action = self.env["ir.actions.actions"]._for_xml_id("stock.action_change_product_quantity")
-    #         action['context'] = dict(
-    #             self.env.context,
-    #             default_product_id=default_product_id,
-    #             default_product_tmpl_id=self.id
-    #         )
-    #         return action
+    def action_update_quantity_on_hand(self):
+        advanced_option_groups = [
+            'om_management_inventory.group_stock_multi_locations',
+            'om_management_inventory.group_production_lot',
+            'om_management_inventory.group_tracking_owner',
+            'om_management_inventory.group_stock_packaging',
+        ]
+        if (self.env.user.user_has_groups(','.join(advanced_option_groups))):
+            return self.action_open_quants()
+        else:
+            default_product_id = self.env.context.get('default_product_id', len(self.product_variant_ids) == 1
+                                                      and self.product_variant_id.id)
+            action = self.env["ir.actions.actions"]._for_xml_id("om_management_inventory.action_change_product_quantity")
+            action['context'] = dict(
+                self.env.context,
+                default_product_id=default_product_id,
+                default_product_tmpl_id=self.id
+            )
+            return action
 
 
 

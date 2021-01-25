@@ -19,8 +19,6 @@
         'security/ir.model.access.csv',
         'views/product_view.xml',
         'views/inventory.xml',
-        'wizard/change_product_qty_views.xml',
-        'wizard/replenish_product_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

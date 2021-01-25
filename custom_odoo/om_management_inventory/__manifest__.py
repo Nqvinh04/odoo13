@@ -14,12 +14,13 @@
     'website': "http://www.yourcompany.com",
     'category': 'Extra Tools',
     'version': '0.1',
-    'depends': ['base', 'mail'],
+    'depends': ['base', 'mail', 'product', 'uom'],
     'data': [
         'security/ir.model.access.csv',
         'views/product_view.xml',
         'views/inventory.xml',
         'wizard/change_product_qty_views.xml',
+        'wizard/replenish_product_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

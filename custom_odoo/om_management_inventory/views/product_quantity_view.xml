@@ -6,9 +6,7 @@
         <field eval="11" name="priority"/>
         <field name="arch" type="xml">
             <from>
-
             </from>
         </field>
-
     </record>
 </odoo>

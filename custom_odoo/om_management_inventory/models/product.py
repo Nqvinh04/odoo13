@@ -11,6 +11,7 @@ class Product(models.Model):
     price = fields.Float(string='Giá/Gói', track_visibility='always')
     dvt = fields.Char(default='Gói', string="Quy Cách", track_visibility='always')
     inventory_ids = fields.One2many('product.inventory', 'product_id')
+    product_variant_count = fields.Integer('Variant Count', related='product_tmpl_id.product_variant_count')
     type = fields.Selection([
         ('product', 'Storable Product'),
         ('consu', 'Consumable'),
@@ -33,7 +34,7 @@ class Product(models.Model):
 
     product_tmpl_id = fields.Many2one(
         'product.template', 'Product Template',
-        auto_join=True, index=True, ondelete="cascade", required=True)
+        auto_join=True, index=True, ondelete="cascade")
 
     @api.depends('image_variant_1920', 'image_variant_1024')
     def _compute_can_image_variant_1024_be_zoomed(self):
